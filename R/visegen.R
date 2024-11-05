@@ -3,7 +3,7 @@
 #' This section is under construction.
 #'
 #'
-#' @docType package
+#' @docType _PACKAGE
 #'
 #' @author Ashley E. Mullan \email{ashleymullan2000@gmail.com}
 #'
