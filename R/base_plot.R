@@ -10,7 +10,7 @@
 #' x <- rnorm(n = 100, mean = 0, sd = 1)
 #' y <- rnorm(n = 100, mean = 3, sd = 1)
 #'
-#; @export
+#' @export
 base_plot <- function(x,y){
   df <- data.frame(x = x, y = y)
   p <- df |>
