@@ -1,4 +1,4 @@
-#' Returns a list of two vectors
+#' Computes confidence interval bounds for each lambda under consideration
 #'
 #' This function returns upper and lower confidence interval bounds for each value of lambda, contained in a list of two vectors.
 #'
@@ -22,7 +22,7 @@ create_ci_bounds <- function(bens, conf_level = 0.95){
   tail_size <- (1 - conf_level)/2
   lower_quantile <- tail_size
   upper_quantile <- 1 - tail_size
-  lowers <- apply(bens, quantile, probs = lower_quantile)
-  uppers <- apply(bens, quantile, probs = upper_quantile)
+  lowers <- apply(bens, 2, quantile, probs = lower_quantile)
+  uppers <- apply(bens, 2, quantile, probs = upper_quantile)
   list(lower_bounds = lowers, upper_bounds = uppers)
 }

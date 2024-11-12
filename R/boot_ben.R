@@ -1,6 +1,6 @@
-#' Returns a matrix of incremental net monetary benefit
+#' Computes a matrix of net incremental benefits
 #'
-#' Provides the framework for a visualization
+#' Computes (via bootstrapping for each value of lambda) a matrix (of dimension B X L, where B is the number of desired bootstrap replications and L is the number of lambda constraints under consideration) of incremental net monetary benefits
 #'
 #' @param df a data frame containing at least columns A, Z, and Y
 #' @param lambdas list of lambda values, where lambda is an upper bound on available resources, expressed in terms of currency

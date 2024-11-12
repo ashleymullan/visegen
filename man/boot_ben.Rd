@@ -2,7 +2,7 @@
 % Please edit documentation in R/boot_ben.R
 \name{boot_ben}
 \alias{boot_ben}
-\title{Returns a matrix of incremental net monetary benefit}
+\title{Computes a matrix of net incremental benefits}
 \usage{
 boot_ben(df, lambdas, B = 1000, N)
 }
@@ -19,7 +19,7 @@ boot_ben(df, lambdas, B = 1000, N)
 matrix of dimension B x length(lambdas)
 }
 \description{
-Provides the framework for a visualization
+Computes (via bootstrapping for each value of lambda) a matrix (of dimension B X L, where B is the number of desired bootstrap replications and L is the number of lambda constraints under consideration) of incremental net monetary benefits
 }
 \examples{
 B <- 1000

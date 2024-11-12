@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_ci_bounds.R
 \name{create_ci_bounds}
 \alias{create_ci_bounds}
-\title{Returns a list of two vectors}
+\title{Computes confidence interval bounds for each lambda under consideration}
 \usage{
 create_ci_bounds(bens, conf_level = 0.95)
 }
