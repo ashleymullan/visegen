@@ -20,11 +20,12 @@
 #'
 #' @export
 boot_ben <- function(df, lambdas, B = 1000, N){
-  bNMBs <- matrix(nrow = B, ncol = length(ls))
+  bNMBs <- matrix(nrow = B, ncol = length(lambdas))
   for (j in 1:B){ #bootstrap each row
     sample_ids <- sample(1:N, size = N, replace = TRUE)
     resample <- df[sample_ids,]
-    bNMBs[j,] <- lambdas * (mean(resample$Z[resample$A == 1]) - mean(resample$Z[resample$A == 0])) - (mean(resample$Y[resample$A == 1]) - median(resample$Y[resample$A == 0]))
+    scale <- (mean(resample$Z[resample$A == 1]) - mean(resample$Z[resample$A == 0])) - (mean(resample$Y[resample$A == 1]) - mean(resample$Y[resample$A == 0]))
+    bNMBs[j,] <- lambdas * scale
   }
   bNMBs
 }
