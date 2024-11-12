@@ -2,5 +2,6 @@
 
 export(base_plot)
 export(boot_ben)
+export(create_ci_bounds)
 import(dplyr)
 import(ggplot2)
