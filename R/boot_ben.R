@@ -1,42 +1,39 @@
-#' Generates a basic plot
+#' Returns a matrix of incremental net monetary benefit
 #'
 #' Provides the framework for a visualization
 #'
-#' @param x Independent Variable
-#' @param y Dependent Variable
-#' @return ggplot2 object
+#' @param df a data frame containing at least columns A, Z, and Y
+#' @param lambdas list of lambda values, where lambda is an upper bound on available resources, expressed in terms of currency
+#' @param B number of bootstrap repetitions, defaults to 1000
+#' @param N sample size
+#' @return matrix of dimension B x length(lambdas)
 #'
 #' @examples
-#' x <- rnorm(n = 100, mean = 0, sd = 1)
-#' y <- rnorm(n = 100, mean = 3, sd = 1)
+#' B <- 1000
+#' N <- 20000
+#' A <- rbinom(N, 1, 0.5)
+#' Z <- rnorm(N, 50 + 4.5 * A, 4)
+#' Y <- rnorm(N, 100 + 2 * A, 5)
+#' lambdas <- c(0:1000)/500
+#' df <- data.frame(A,Z,Y)
+#' boot_ben(df, lambdas, N)
 #'
 #' @export
-base_plot <- function(x,y){
-  df <- data.frame(x = x, y = y)
-  p <- df |>
-    ggplot2::ggplot(aes(x = x, y = y)) +
-    theme_bw()
-  p
+boot_ben <- function(df, lambdas, B = 1000, N){
+  bNMBs <- matrix(nrow = B, ncol = length(ls))
+  for (j in 1:B){ #bootstrap each row
+    sample_ids <- sample(1:N, size = N, replace = TRUE)
+    resample <- df[sample_ids,]
+    bNMBs[j,] <- lambdas * (mean(resample$Z[resample$A == 1]) - mean(resample$Z[resample$A == 0])) - (mean(resample$Y[resample$A == 1]) - median(resample$Y[resample$A == 0]))
+  }
+  bNMBs
 }
 
-# CEA2 = function(A,Z,Y,ls, cea1 = F, xlimm = NULL, tit = "", nullin = 0.15, inmil = F, puttab = F){
-#
 #   ##Bind the sampled data together and name it:
 #   dat <- data.frame(cbind(A, Z, Y))
 #   names(dat) <- c("A", "Z", "Y")
 #
-#   ## Bootstrap incremental net monetary benefits (INMB's):
-#   #Create a matrix to hold the INMB's: (row for each bootstrap, each col is for a lambda)
-#   bNMBs <- matrix(nrow = B, ncol = length(ls)) #B must be prespecified, not a parameter
-#   ##For every bootstrap:
-#   for (j in 1:B){ #over each row
-#     ##Resample the data:
-#     samp <- sample(1:N, replace = TRUE) #same length as N
-#     bdat <- dat[samp,] #extract bootstrapped observations
-#     ##And apply the (median) formula for INMB's:
-#     bNMBs[j,] <- ls * (median(bdat$Z[bdat$A == 1]) - median(bdat$Z[bdat$A == 0])) -
-#       (median(bdat$Y[bdat$A == 1]) - median(bdat$Y[bdat$A == 0]))
-#   }
+
 #
 #   #Construct 95% Confidence intervals (percentile method) from the bootstrap:
 #   CIlow <- apply(bNMBs, 2, quantile, probs = 0.025) #over cols (get quantiles at each lambda)
