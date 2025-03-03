@@ -24,12 +24,16 @@ ci_nmb(df, lambdas, B = 1000, conf_level = 0.95)
 Computes (via bootstrapping for each value of lambda) a matrix (of dimension B X L, where B is the number of desired bootstrap replications and L is the number of lambda constraints under consideration) of incremental net monetary benefits
 }
 \examples{
+#boostrapping parameters
 B <- 1000
 conf_level <- 0.95
+#generate data
 A <- rbinom(N, 1, 0.5)
 Z <- rnorm(N, 50 + 4.5 * A, 4)
 Y <- rnorm(N, 100 + 2 * A, 5)
-lambdas <- c(0:1000)/500
+#prepare data
 df <- prep_data(A,Z,Y)
+#set constraints
+lambdas <- c(0:1000)/500
 ci_nmb(df, lambdas, B, conf_level)
 }

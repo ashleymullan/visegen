@@ -6,18 +6,22 @@
 #' @param lambdas list of lambda values, where lambda is an upper bound on available resources, expressed in terms of currency
 #' @param B number of bootstrap repetitions, defaults to 1000
 #' @param conf_level the desired nominal coverage of the confidence interval, defaults to 95%
-#' @return
+#' @returns
 #' \item{lower_bounds: a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
 #' \item{upper_bounds: a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}
 #' \item{bNMBs: a matrix of dimension B x length(lambdas) of the bootstrapped net monetary benefits}
 #' @examples
+#' #boostrapping parameters
 #' B <- 1000
 #' conf_level <- 0.95
+#' #generate data
 #' A <- rbinom(N, 1, 0.5)
 #' Z <- rnorm(N, 50 + 4.5 * A, 4)
 #' Y <- rnorm(N, 100 + 2 * A, 5)
-#' lambdas <- c(0:1000)/500
+#' #prepare data
 #' df <- prep_data(A,Z,Y)
+#' #set constraints
+#' lambdas <- c(0:1000)/500
 #' ci_nmb(df, lambdas, B, conf_level)
 #' @export
 ci_nmb <- function(df, lambdas, B = 1000, conf_level = 0.95){
