@@ -16,7 +16,9 @@ ci_nmb(df, lambdas, B = 1000, conf_level = 0.95)
 \item{conf_level}{the desired nominal coverage of the confidence interval, defaults to 95%}
 }
 \value{
-list of: matrix of dimension B x length(lambdas) of bootstrapped net monetary benefits, vector of size length(lambdas) of lower CI bounds, vector of size length(lambdas) of upper CI bounds
+\item{lower_bounds: a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
+\item{upper_bounds: a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}
+\item{bNMBs: a matrix of dimension B x length(lambdas) of the bootstrapped net monetary benefits}
 }
 \description{
 Computes (via bootstrapping for each value of lambda) a matrix (of dimension B X L, where B is the number of desired bootstrap replications and L is the number of lambda constraints under consideration) of incremental net monetary benefits

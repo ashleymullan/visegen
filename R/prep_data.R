@@ -4,7 +4,7 @@
 #'
 #' @param A a binary vector listing treatment types for each unit of observation (where 0 is the null and 1 is the alternative)
 #' @param Y a numeric vector listing the cost of the given intervention for each unit of observation
-#' #' @param Z a numeric vector listing the effect size of the given intervention for each unit of observation
+#' @param Z a numeric vector listing the effect size of the given intervention for each unit of observation
 #' @return data frame consisting of the columns A,Y,Z with appropriate column names
 #'
 #' @export
