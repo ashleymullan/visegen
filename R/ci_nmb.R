@@ -3,9 +3,9 @@
 #' Computes (via bootstrapping for each value of lambda) a matrix (of dimension B X L, where B is the number of desired bootstrap replications and L is the number of lambda constraints under consideration) of incremental net monetary benefits
 #'
 #' @param df a data frame containing at least columns A, Z, and Y
-#' @param lambdas list of lambda values, where lambda is an upper bound on available resources, expressed in terms of currency
+#' @param lambdas vector of budget constraints
 #' @param B number of bootstrap repetitions, defaults to 1000
-#' @param conf_level the desired nominal coverage of the confidence interval, defaults to 95%
+#' @param conf_level the desired nominal coverage of the CI, defaults to 95%
 #' @returns
 #' \item{lower_bounds: a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
 #' \item{upper_bounds: a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}

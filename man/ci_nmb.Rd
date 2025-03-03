@@ -9,11 +9,11 @@ ci_nmb(df, lambdas, B = 1000, conf_level = 0.95)
 \arguments{
 \item{df}{a data frame containing at least columns A, Z, and Y}
 
-\item{lambdas}{list of lambda values, where lambda is an upper bound on available resources, expressed in terms of currency}
+\item{lambdas}{vector of budget constraints}
 
 \item{B}{number of bootstrap repetitions, defaults to 1000}
 
-\item{conf_level}{the desired nominal coverage of the confidence interval, defaults to 95%}
+\item{conf_level}{the desired nominal coverage of the CI, defaults to 95%}
 }
 \value{
 \item{lower_bounds: a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
