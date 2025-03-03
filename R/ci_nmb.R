@@ -1,15 +1,15 @@
-#' Computes a matrix of net incremental benefits
+#' Computes confidence intervals for incremental net monetary benefits
 #'
 #' Computes (via bootstrapping for each value of lambda) a matrix (of dimension B X L, where B is the number of desired bootstrap replications and L is the number of lambda constraints under consideration) of incremental net monetary benefits
 #'
 #' @param df a data frame containing at least columns A, Z, and Y
 #' @param lambdas vector of budget constraints
 #' @param B number of bootstrap repetitions, defaults to 1000
-#' @param conf_level the desired nominal coverage of the CI, defaults to 95%
-#' @returns
-#' \item{lower_bounds: a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
-#' \item{upper_bounds: a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}
-#' \item{bNMBs: a matrix of dimension B x length(lambdas) of the bootstrapped net monetary benefits}
+#' @param conf_level the desired confidence level, defaults to 95\%
+#' @return
+#' \item{lower_bounds}{a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
+#' \item{upper_bounds}{a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}
+#' \item{bNMB}{a matrix of dimension B x length(lambdas) of the bootstrapped net monetary benefits}
 #' @examples
 #' #boostrapping parameters
 #' B <- 1000

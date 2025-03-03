@@ -2,7 +2,7 @@
 % Please edit documentation in R/ci_nmb.R
 \name{ci_nmb}
 \alias{ci_nmb}
-\title{Computes a matrix of net incremental benefits}
+\title{Computes confidence intervals for incremental net monetary benefits}
 \usage{
 ci_nmb(df, lambdas, B = 1000, conf_level = 0.95)
 }
@@ -13,12 +13,12 @@ ci_nmb(df, lambdas, B = 1000, conf_level = 0.95)
 
 \item{B}{number of bootstrap repetitions, defaults to 1000}
 
-\item{conf_level}{the desired nominal coverage of the CI, defaults to 95%}
+\item{conf_level}{the desired confidence level, defaults to 95\%}
 }
 \value{
-\item{lower_bounds: a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
-\item{upper_bounds: a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}
-\item{bNMBs: a matrix of dimension B x length(lambdas) of the bootstrapped net monetary benefits}
+\item{lower_bounds}{a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
+\item{upper_bounds}{a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}
+\item{bNMB}{a matrix of dimension B x length(lambdas) of the bootstrapped net monetary benefits}
 }
 \description{
 Computes (via bootstrapping for each value of lambda) a matrix (of dimension B X L, where B is the number of desired bootstrap replications and L is the number of lambda constraints under consideration) of incremental net monetary benefits
