@@ -32,5 +32,4 @@ Y <- rnorm(N, 100 + 2 * A, 5)
 lambdas <- c(0:1000)/500
 df <- prep_data(A,Z,Y)
 ci_nmb(df, lambdas, B, conf_level)
-
 }

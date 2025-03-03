@@ -10,7 +10,6 @@
 #' \item{lower_bounds: a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
 #' \item{upper_bounds: a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}
 #' \item{bNMBs: a matrix of dimension B x length(lambdas) of the bootstrapped net monetary benefits}
-#'
 #' @examples
 #' B <- 1000
 #' conf_level <- 0.95
@@ -20,7 +19,6 @@
 #' lambdas <- c(0:1000)/500
 #' df <- prep_data(A,Z,Y)
 #' ci_nmb(df, lambdas, B, conf_level)
-#'
 #' @export
 ci_nmb <- function(df, lambdas, B = 1000, conf_level = 0.95){
   bNMBs <- matrix(nrow = B, ncol = length(lambdas))
