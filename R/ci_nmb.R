@@ -7,9 +7,9 @@
 #' @param B number of bootstrap repetitions, defaults to 1000
 #' @param conf_level the desired confidence level, defaults to 95\%
 #' @return
-#' \item{lower_bounds}{a vector of size length(lambdas) of the lower bounds of the confidence intervals for each value of lambda}
-#' \item{upper_bounds}{a vector of size length(lambdas) of the upper bounds of the confidence intervals for each value of lambda}
-#' \item{bNMB}{a matrix of dimension B x length(lambdas) of the bootstrapped net monetary benefits}
+#' \item{lower_bounds}{a vector of size length(\code{lambdas}) of the lower bounds of the confidence intervals for each value of lambda}
+#' \item{upper_bounds}{a vector of size length(\code{lambdas}) of the upper bounds of the confidence intervals for each value of lambda}
+#' \item{bNMB}{a matrix of dimension B x length(\code{lambdas}) of the bootstrapped net monetary benefits}
 #' @examples
 #' #boostrapping parameters
 #' B <- 1000

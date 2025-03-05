@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_2gp.R
 \name{plot_2gp}
 \alias{plot_2gp}
-\title{Generates a basic plot}
+\title{Generates a basic second-generation acceptability curve}
 \usage{
 plot_2gp(
   lambdas,
@@ -10,22 +10,25 @@ plot_2gp(
   confidence_interval_lows,
   confidence_interval_highs,
   p_vals,
-  tol = 0.01
+  tol = 1e-06
 )
 }
 \arguments{
-\item{x}{Independent Variable}
+\item{lambdas}{a vector of budget constraints}
 
-\item{y}{Dependent Variable}
+\item{null_scale}{a scalar controlling the length of the null interval}
+
+\item{confidence_interval_lows}{a vector of the same length as \code{lambdas}, holding the lower CI bound of the net monetary benefits, often coming from the output of \code{ci_nmb()}}
+
+\item{confidence_interval_highs}{a vector of the same length as \code{lambdas}, holding the upper CI bound of the net monetary benefits, often coming from the output of \code{ci_nmb()}}
+
+\item{p_vals}{a vector of the same length as \code{lambdas} holding the second-generation p-value for each lambda, often coming from the output of \code{compute_2gp()}}
+
+\item{tol}{very small number, how far from the second-generation p-value benchmarks you're willing to accept}
 }
 \value{
-ggplot2 object
+a second generation acceptability curve, a ggplot2 object
 }
 \description{
-Provides the framework for a visualization
-}
-\examples{
-x <- rnorm(n = 100, mean = 0, sd = 1)
-y <- rnorm(n = 100, mean = 3, sd = 1)
-
+Uses the confidence interval method and second-generation p-values to evaluate and display conclusions about treatment optimality
 }

@@ -4,8 +4,8 @@
 #'
 #' @param null_scale a scalar to adjust the size of your null interval, defaults to 0.15
 #' @param lambdas a vector of lambda values, where lambda is an upper bound on available resources, expressed in terms of currency
-#' @param ci_uppers a vector of the same length as lambdas, holding the upper CI bound of the net monetary benefits, often coming from the output of ci_nmb
-#' @param ci_lowers a vector of the same length as lambdas, holding the lower CI bound of the net monetary benefits, often coming from the output of ci_nmb
+#' @param ci_uppers a vector of the same length as \code{lambdas}, holding the upper CI bound of the net monetary benefits, often coming from the output of \code{ci_nmb()}
+#' @param ci_lowers a vector of the same length as \code{lambdas}, holding the lower CI bound of the net monetary benefits, often coming from the output of \code{ci_nmb()}
 #' @return vector of 2nd generation p-values for each lambda value
 #' @examples
 #' B <- 1000

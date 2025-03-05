@@ -11,9 +11,9 @@ compute_2gp(null_scale = 0.15, lambdas, ci_lowers, ci_uppers)
 
 \item{lambdas}{a vector of lambda values, where lambda is an upper bound on available resources, expressed in terms of currency}
 
-\item{ci_lowers}{a vector of the same length as lambdas, holding the lower CI bound of the net monetary benefits, often coming from the output of ci_nmb}
+\item{ci_lowers}{a vector of the same length as \code{lambdas}, holding the lower CI bound of the net monetary benefits, often coming from the output of \code{ci_nmb()}}
 
-\item{ci_uppers}{a vector of the same length as lambdas, holding the upper CI bound of the net monetary benefits, often coming from the output of ci_nmb}
+\item{ci_uppers}{a vector of the same length as \code{lambdas}, holding the upper CI bound of the net monetary benefits, often coming from the output of \code{ci_nmb()}}
 }
 \value{
 vector of 2nd generation p-values for each lambda value
