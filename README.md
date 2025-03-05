@@ -1,7 +1,8 @@
-<p style="display:inline-block;">
-  <img src="hex.png" width="200" title="a colored line graph surrounded by paintbrushes">
-  <h1> VIsualization of SEcond GENeration P-Values (VISEGEN)</h1>
-</p>
+# VIsualization of SEcond GENeration P-Values (VISEGEN)
+
+<div align="center">
+  <img src="hex.png", width="200" title = "a colored line graph surrounded by paintbrushes">
+</div>
 
 ## Package Installation
 
